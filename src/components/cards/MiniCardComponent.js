@@ -56,7 +56,7 @@ const useStyles = createUseStyles((theme) => ({
 function MiniCardComponent({ className = "", title, value }) {
   const theme = useTheme();
   const classes = useStyles({ theme });
-  const composedClassName = [classes.container, className].join(" ");
+  // const composedClassName = [classes.container, className].join(" ");
   return (
     <CardContainer
       flexGrow={1}
