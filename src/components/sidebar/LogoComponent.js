@@ -22,7 +22,7 @@ function LogoComponent() {
   return (
     <LogoContainer horizontal="center" vertical="center">
       <IconLogo />
-      <LogoTitle>Profile</LogoTitle>
+      <LogoTitle>CodeIgnite</LogoTitle>
     </LogoContainer>
   );
 }
