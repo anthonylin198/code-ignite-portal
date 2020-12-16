@@ -54,6 +54,18 @@ function SidebarComponent() {
         icon={IconSubscription}
         onClick={() => onClick(SLUGS.dashboard)}
       />
+      <MenuItem
+        id={SLUGS.curriculum}
+        title="Curriculum"
+        icon={IconSubscription}
+        onClick={() => onClick(SLUGS.curriculum)}
+      />
+      <MenuItem
+        id={SLUGS.explore}
+        title="Explore"
+        icon={IconSubscription}
+        onClick={() => onClick(SLUGS.explore)}
+      />
       {/* <MenuItem
         id={SLUGS.overview}
         items={[SLUGS.overviewTwo, SLUGS.overviewThree]}
@@ -82,26 +94,32 @@ function SidebarComponent() {
           onClick={() => onClick(SLUGS.overviewThree)}
         />
       </MenuItem> */}
-      <MenuItem
-        id={SLUGS.componentslist}
-        title="ComponentsList"
-        icon={IconSubscription}
-        onClick={() => onClick(SLUGS.componentsList)}
-      />
-      <MenuItem
+      {/* <MenuItem
         id={SLUGS.tickets}
         title="Tickets"
         icon={IconTickets}
         onClick={() => onClick(SLUGS.tickets)}
-      />
+      /> */}
 
-      <MenuItem
+      {/* <MenuItem
         id={SLUGS.contacts}
         title="Contacts"
         icon={IconContacts}
         onClick={() => onClick(SLUGS.contacts)}
-      />
+      /> */}
       <div className={classes.separator}></div>
+      {/* <MenuItem
+        id={SLUGS.componentslist}
+        title="ComponentsList"
+        icon={IconSubscription}
+        onClick={() => onClick(SLUGS.componentsList)}
+      /> */}
+      <MenuItem
+        id={SLUGS.componentsList}
+        title="Components List"
+        icon={IconSubscription}
+        onClick={() => onClick(SLUGS.componentsList)}
+      />
       <MenuItem
         id={SLUGS.settings}
         title="Settings"

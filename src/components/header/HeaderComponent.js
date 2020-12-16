@@ -103,6 +103,12 @@ function HeaderComponent() {
     case currentItem === SLUGS.profile:
       title = "Profile";
       break;
+    case currentItem === SLUGS.curriculum:
+      title = "Curriculum";
+      break;
+    case currentItem === SLUGS.explore:
+      title = "Explore";
+      break;
     default:
       title = "";
   }

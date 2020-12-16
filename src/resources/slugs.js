@@ -2,6 +2,8 @@ const slugs = {
   // private
   profile: "/profile",
   dashboard: "/dashboard",
+  curriculum: "/curriculum",
+  explore: "/explore",
   overview: "/overview",
   overviewTwo: "/overview/two",
   overviewThree: "/overview/three",

@@ -6,6 +6,8 @@ import ComponentsList from "../routes/componentsList";
 
 const DashboardComponent = lazy(() => import("./dashboard"));
 const ProfileComponent = lazy(() => import("./profile"));
+const CurriculumComponent = lazy(() => import("./curriculum"));
+const ExploreComponent = lazy(() => import("./explore"));
 
 function PrivateRoutes() {
   return (
@@ -13,6 +15,8 @@ function PrivateRoutes() {
       <Switch>
         <Route exact path={SLUGS.profile} component={ProfileComponent} />
         <Route exact path={SLUGS.dashboard} component={DashboardComponent} />
+        <Route exact path={SLUGS.curriculum} component={CurriculumComponent} />
+        <Route exact path={SLUGS.explore} component={ExploreComponent} />
         <Route
           exact
           path={SLUGS.overviewTwo}
