@@ -18,6 +18,7 @@ const CardContainer = styled(Column)`
   }
   @media (max-width: 768px) {
     max-width: none;
+    margin: 10px;
   }
 `;
 

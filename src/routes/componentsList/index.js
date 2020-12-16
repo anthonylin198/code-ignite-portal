@@ -16,9 +16,9 @@ const ButtonsContainer = styled(Row)`
 const ComponentsList = () => {
   return (
     <Column>
-      <TitleContainer>
+      <Row>
         <h1>Mini Cards</h1>
-      </TitleContainer>
+      </Row>
       <ButtonsContainer
         wrap
         flexGrow={1}

@@ -43,6 +43,12 @@ function SidebarComponent() {
         <LogoComponent />
       </div>
       <MenuItem
+        id={SLUGS.profile}
+        title="Profile"
+        icon={IconSubscription}
+        onClick={() => onClick(SLUGS.profile)}
+      />
+      <MenuItem
         id={SLUGS.dashboard}
         title="Dashboard"
         icon={IconSubscription}

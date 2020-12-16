@@ -100,6 +100,9 @@ function HeaderComponent() {
     case currentItem === SLUGS.componentsList:
       title = "Components List";
       break;
+    case currentItem === SLUGS.profile:
+      title = "Profile";
+      break;
     default:
       title = "";
   }

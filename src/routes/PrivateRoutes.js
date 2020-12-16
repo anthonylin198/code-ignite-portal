@@ -5,11 +5,13 @@ import LoadingComponent from "../components/loading";
 import ComponentsList from "../routes/componentsList";
 
 const DashboardComponent = lazy(() => import("./dashboard"));
+const ProfileComponent = lazy(() => import("./profile"));
 
 function PrivateRoutes() {
   return (
     <Suspense fallback={<LoadingComponent loading />}>
       <Switch>
+        <Route exact path={SLUGS.profile} component={ProfileComponent} />
         <Route exact path={SLUGS.dashboard} component={DashboardComponent} />
         <Route
           exact
