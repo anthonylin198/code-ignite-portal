@@ -15,11 +15,6 @@ ol[class] {
 
 /* Remove default margin */
 body,
-h1,
-h2,
-h3,
-h4,
-p,
 ul[class],
 ol[class],
 li,
@@ -30,6 +25,13 @@ dl,
 dd {
   margin: 0;
 }
+
+/* These were originally above in the margin 0 */
+/* h1,
+h2,
+h3,
+h4,
+p, */
 
 /* Set core body defaults */
 body {
@@ -85,5 +87,5 @@ body {
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
-  line-height: 26px;
+  /* line-height: 26px; */
 }
