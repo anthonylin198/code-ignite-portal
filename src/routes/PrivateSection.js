@@ -13,6 +13,7 @@ const StyledRow = styled(Row)`
 `;
 
 const StyledColumn = styled(Column)`
+  /* height: 100%; */
   margin-left: 255px;
   padding: 30px;
   @media (max-width: 1080px) {
@@ -21,7 +22,7 @@ const StyledColumn = styled(Column)`
 `;
 
 const StyledBlock = styled.div`
-  margin-top: 54px;
+  margin-top: 34px;
 `;
 
 function PrivateSection() {

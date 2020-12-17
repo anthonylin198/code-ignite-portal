@@ -1,19 +1,47 @@
 import React from "react";
-import { Column, Row } from "simple-flexbox";
+
+import { makeStyles } from "@material-ui/core/styles";
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+    // height: "100vh",
+  },
+  gridContainer: {
+    height: "500px",
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: "center",
+    color: theme.palette.text.secondary,
+    height: "100%",
+  },
+}));
 
 const Profile = () => {
+  const classes = useStyles();
   return (
-    <Row horizontal="space-between" breakpoints={{ 768: "column" }}>
-      <Column>
-        <h1>Profile Component</h1>
-        <h1>Summary Component</h1>
-        <h1>friends Component</h1>
-      </Column>
-      <Column breakpoints={{ 768: "column" }}>
-        <h1>Your Company Componentttttt</h1>
-        <h1>Progress Component</h1>
-      </Column>
-    </Row>
+    <div className={classes.root}>
+      <Grid container spacing={3}>
+        <Grid item xs={12} md={6} className={classes.gridContainer}>
+          <Paper className={classes.paper}>xs=16</Paper>
+        </Grid>
+        <Grid item xs={12} md={6} className={classes.gridContainer}>
+          <Paper className={classes.paper}>xs=6</Paper>
+        </Grid>
+        <Grid item xs={6} className={classes.gridContainer}>
+          <Paper className={classes.paper}>xs=6</Paper>
+        </Grid>
+        <Grid item xs={3} className={classes.gridContainer}>
+          <Paper className={classes.paper}>xs=3</Paper>
+        </Grid>
+        <Grid item xs={3} className={classes.gridContainer}>
+          <Paper className={classes.paper}>xs=3</Paper>
+        </Grid>
+      </Grid>
+    </div>
   );
 };
 
