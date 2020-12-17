@@ -6,6 +6,7 @@ import Grid from "@material-ui/core/Grid";
 import ProfileComponent from "./profileComponent";
 import CompanyComponent from "./companyComponent";
 import SummaryComponent from "./summaryComponent";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,

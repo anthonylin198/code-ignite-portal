@@ -1,11 +1,11 @@
 import React from "react";
 
-import { CardContainer } from "../../../components/layout";
+import { CardContainerFlex } from "../../../components/layout";
 
 const ProfileComponent = () => {
   // Create dummy data
   return (
-    <CardContainer>
+    <CardContainerFlex>
       <div>Profile image Container</div>
       <div>Contact Information:</div>
       <div>Professional Summary:</div>
@@ -22,7 +22,7 @@ const ProfileComponent = () => {
       <div>Information Container</div>
       <div>Information Container</div>
       <div>Information Container</div>
-    </CardContainer>
+    </CardContainerFlex>
   );
 };
 
