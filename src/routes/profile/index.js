@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     // height: "100vh",
   },
+  // maybe no need for this, just keep flexible until shit is filled
   gridContainer: {
     height: "500px",
   },
@@ -31,13 +32,13 @@ const Profile = () => {
         <Grid item xs={12} md={6} className={classes.gridContainer}>
           <Paper className={classes.paper}>xs=6</Paper>
         </Grid>
-        <Grid item xs={6} className={classes.gridContainer}>
+        <Grid item xs={12} md={6} className={classes.gridContainer}>
           <Paper className={classes.paper}>xs=6</Paper>
         </Grid>
-        <Grid item xs={3} className={classes.gridContainer}>
+        <Grid item xs={12} md={3} className={classes.gridContainer}>
           <Paper className={classes.paper}>xs=3</Paper>
         </Grid>
-        <Grid item xs={3} className={classes.gridContainer}>
+        <Grid item xs={12} md={3} className={classes.gridContainer}>
           <Paper className={classes.paper}>xs=3</Paper>
         </Grid>
       </Grid>
