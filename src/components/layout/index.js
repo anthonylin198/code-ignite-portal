@@ -3,11 +3,11 @@ import styled from "styled-components";
 export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: 0.5rem;
+  margin-bottom: 1rem;
   padding: 1rem;
   background: white;
-  border-radius: 3px;
+  border-radius: 5px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 `;
 
 // Hover card container

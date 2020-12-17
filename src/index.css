@@ -27,11 +27,13 @@ dd {
 }
 
 /* These were originally above in the margin 0 */
-/* h1,
+h1,
 h2,
 h3,
 h4,
-p, */
+p {
+  margin: 0;
+}
 
 /* Set core body defaults */
 body {
@@ -82,7 +84,7 @@ select {
 }
 
 body {
-  background-color: #f7f8fc;
+  background-color: #f4f7fe;
   font-family: Muli;
   font-style: normal;
   font-weight: normal;
