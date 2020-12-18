@@ -15,7 +15,7 @@ const useStyles = createUseStyles((theme) => ({
     minWidth: 35,
     borderRadius: 50,
     marginLeft: 14,
-    border: `1px solid ${theme.color.lightGrayishBlue2}`,
+    border: `1px solid "#DFE0EB"`,
     "@media (max-width: 768px)": {
       marginLeft: 14,
     },
@@ -24,14 +24,14 @@ const useStyles = createUseStyles((theme) => ({
     height: 40,
   },
   name: {
-    ...theme.typography.itemTitle,
+    // ...theme.typography.itemTitle,
     textAlign: "right",
     "@media (max-width: 768px)": {
       display: "none",
     },
   },
   separator: {
-    borderLeft: `1px solid ${theme.color.lightGrayishBlue2}`,
+    borderLeft: `1px solid "#DFE0EB"`,
     marginLeft: 32,
     marginRight: 32,
     height: 32,
@@ -42,7 +42,7 @@ const useStyles = createUseStyles((theme) => ({
     },
   },
   title: {
-    ...theme.typography.title,
+    // ...theme.typography.title,
     "@media (max-width: 1080px)": {
       marginLeft: 50,
     },

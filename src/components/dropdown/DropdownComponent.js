@@ -34,7 +34,7 @@ const useStyles = createUseStyles((theme) => ({
   },
   dropdownItemsContainer: {
     background: "white",
-    border: `1px solid ${theme.color.lightGrayishBlue2}`,
+    border: `1px solid "#DFE0EB"`,
     borderRadius: 5,
     minWidth: 170,
     padding: 0,
@@ -45,7 +45,7 @@ const useStyles = createUseStyles((theme) => ({
     bottom: ({ position }) => position.bottom,
     left: ({ position }) => position.left,
     "& button:first-of-type:hover div > svg > path": {
-      fill: theme.color.paleBlue,
+      fill: "#DDE2FF",
     },
   },
   dropdownItem: {
@@ -56,7 +56,7 @@ const useStyles = createUseStyles((theme) => ({
     outline: "none",
     padding: "10px 10px",
     "&:hover": {
-      background: theme.color.paleBlue,
+      background: "#DDE2FF",
     },
     "&:after": {
       content: '" "',
@@ -65,7 +65,7 @@ const useStyles = createUseStyles((theme) => ({
       bottom: -10,
       width: "100%",
       height: 1,
-      background: theme.color.paleBlue,
+      background: "#DDE2FF",
     },
     "&:last-child:after": {
       content: "",

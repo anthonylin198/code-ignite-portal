@@ -10,7 +10,7 @@ import MenuItem from "./MenuItemComponent";
 
 const useStyles = createUseStyles({
   separator: {
-    borderTop: ({ theme }) => `1px solid ${theme.color.lightGrayishBlue}`,
+    borderTop: "#F7F8FC",
     marginTop: 16,
     marginBottom: 16,
     opacity: 0.06,
