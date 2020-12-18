@@ -7,8 +7,7 @@ async function dbConnect() {
     return;
   }
 
-  console.log(process.env.REACT_APP_MONGO_URI_PROD);
-  // create the logic,
+  // console.log(process.env.REACT_APP_MONGO_URI_PROD);
   let mongoURI = "";
   if (process.env.NODE_ENV === "development") {
     mongoURI = process.env.REACT_APP_MONGO_URI_DEV;
