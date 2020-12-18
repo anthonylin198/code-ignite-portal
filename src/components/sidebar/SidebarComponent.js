@@ -1,5 +1,4 @@
 import React from "react";
-import { createUseStyles, useTheme } from "react-jss";
 import { useHistory } from "react-router-dom";
 import SLUGS from "../../resources/slugs";
 import { IconLogout, IconSettings, IconSubscription } from "../../assets/icons";
@@ -8,19 +7,18 @@ import LogoComponent from "./LogoComponent";
 import Menu from "./MenuComponent";
 import MenuItem from "./MenuItemComponent";
 
-const useStyles = createUseStyles({
-  separator: {
-    borderTop: "#F7F8FC",
-    marginTop: 16,
-    marginBottom: 16,
-    opacity: 0.06,
-  },
-});
+// styled components
+import styled from "styled-components";
+
+const Seperator = styled.div`
+  border-top: 2px solid #f7f8fc;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  opacity: 0.06;
+`;
 
 function SidebarComponent() {
   const { push } = useHistory();
-  const theme = useTheme();
-  const classes = useStyles({ theme });
   const isMobile = window.innerWidth <= 1080;
 
   async function logout() {
@@ -101,7 +99,7 @@ function SidebarComponent() {
         icon={IconContacts}
         onClick={() => onClick(SLUGS.contacts)}
       /> */}
-      <div className={classes.separator}></div>
+      <Seperator></Seperator>
       {/* <MenuItem
         id={SLUGS.componentslist}
         title="ComponentsList"

@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { useTheme } from "react-jss";
 import { slide as Menu } from "react-burger-menu";
 
 // styles for the react burger menu
-const getMenuStyles = ({ theme }) => ({
+const getMenuStyles = () => ({
   bmBurgerButton: {
     position: "absolute",
     width: 26,
@@ -49,8 +48,7 @@ const getMenuStyles = ({ theme }) => ({
 });
 
 function MenuComponent({ children, isMobile }) {
-  const theme = useTheme();
-  const menuStyles = getMenuStyles({ theme });
+  const menuStyles = getMenuStyles();
   const [isOpen, setIsOpen] = useState(false);
 
   return (
