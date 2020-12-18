@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Profile = () => {
+  console.log("node env", process.env.NODE_ENV);
   const classes = useStyles();
   return (
     <div className={classes.root}>
