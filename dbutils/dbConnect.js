@@ -7,12 +7,13 @@ async function dbConnect() {
     return;
   }
 
+  console.log(process.env.REACT_APP_MONGO_URI_PROD);
   // create the logic,
   let mongoURI = "";
   if (process.env.NODE_ENV === "development") {
     mongoURI = process.env.REACT_APP_MONGO_URI_DEV;
   } else {
-    mongoURI = process.env.REACT_APP_MONGO_URI_PROD;
+    mongoURI = process.env.REACT_APP_MONGO_URI_DEV;
   }
 
   const db = await mongoose.connect(mongoURI, {
