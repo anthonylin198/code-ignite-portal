@@ -1,11 +1,9 @@
 import dbConnect from "../../dbutils/dbConnect";
 import Problem from "../../models/Problem";
 
-dbConnect();
-
-export default async (req, res) => {
+module.exports = async (req, res) => {
+  dbConnect();
   const { method } = req;
-
   switch (method) {
     case "GET":
       try {
