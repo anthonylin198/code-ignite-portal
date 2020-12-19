@@ -40,6 +40,12 @@ const DropdownItemsContainer = styled(Column)`
   /* & button:first-of-type:hover div > svg > path: {
     fill: "#DDE2FF";
   } */
+  top: ${({ position }) => {
+    return position.top + "px";
+  }};
+  right: ${({ position }) => position.right + "px"};
+  bottom: ${({ position }) => position.bottom}+ "px";
+  left: ${({ position }) => position.left + "px"};
 `;
 
 const ArrowContainer = styled.div`
@@ -138,7 +144,7 @@ function DropdownComponent({ label, options, position }) {
     <DropdownColumnContainer>
       <DropdownButton onClick={onDropdownClick}>{label}</DropdownButton>
       {userMenuOpen && (
-        <DropdownItemsContainer>
+        <DropdownItemsContainer position={position}>
           {options.map((option, index) => (
             <DropdownItemButton
               key={`option-${index}`}
