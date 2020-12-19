@@ -55,7 +55,7 @@ const Name = styled.span`
   letter-spacing: 0.2px;
   text-align: right;
   @media (max-width: 768px) {
-    display: "none";
+    display: none;
   }
 `;
 
