@@ -106,12 +106,12 @@ function SidebarComponent() {
         icon={IconSubscription}
         onClick={() => onClick(SLUGS.componentsList)}
       /> */}
-      <MenuItem
+      {/* <MenuItem
         id={SLUGS.componentsList}
         title="Components List"
         icon={IconSubscription}
         onClick={() => onClick(SLUGS.componentsList)}
-      />
+      /> */}
       <MenuItem
         id={SLUGS.settings}
         title="Settings"
