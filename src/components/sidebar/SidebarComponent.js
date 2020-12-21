@@ -1,7 +1,14 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import SLUGS from "../../resources/slugs";
-import { IconLogout, IconSettings, IconSubscription } from "../../assets/icons";
+import {
+  IconLogout,
+  IconSettings,
+  IconSubscription,
+  IconAgents,
+  IconOverview,
+  IconContacts,
+} from "../../assets/icons";
 import { convertSlugToUrl } from "../../resources/utilities";
 import LogoComponent from "./LogoComponent";
 import Menu from "./MenuComponent";
@@ -37,13 +44,13 @@ function SidebarComponent() {
       <MenuItem
         id={SLUGS.profile}
         title="Profile"
-        icon={IconSubscription}
+        icon={IconAgents}
         onClick={() => onClick(SLUGS.profile)}
       />
       <MenuItem
         id={SLUGS.dashboard}
         title="Dashboard"
-        icon={IconSubscription}
+        icon={IconOverview}
         onClick={() => onClick(SLUGS.dashboard)}
       />
       <MenuItem
@@ -55,7 +62,7 @@ function SidebarComponent() {
       <MenuItem
         id={SLUGS.explore}
         title="Explore"
-        icon={IconSubscription}
+        icon={IconContacts}
         onClick={() => onClick(SLUGS.explore)}
       />
       {/* <MenuItem
