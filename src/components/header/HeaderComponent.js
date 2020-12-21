@@ -189,6 +189,7 @@ function HeaderComponent() {
         </IconStyles>
         <IconStyles>
           <DropdownComponent
+            // Have a few different icon bells here
             label={<IconBell />}
             options={[
               {
