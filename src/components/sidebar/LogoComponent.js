@@ -1,6 +1,6 @@
 import React from "react";
 import { Row } from "simple-flexbox";
-import { IconLogo } from "../../assets/icons";
+// import { IconLogo } from "../../assets/icons";
 import Logo from "../../assets/icons/Logo.png";
 // import styled components
 import styled from "styled-components";
