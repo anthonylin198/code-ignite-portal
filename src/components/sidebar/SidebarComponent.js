@@ -122,7 +122,7 @@ function SidebarComponent() {
       /> */}
 
       <MenuItem
-        id={SLUGS.settings}
+        id={SLUGS.messages}
         title="Messages"
         icon={IconTickets}
         onClick={() => onClick(SLUGS.messages)}

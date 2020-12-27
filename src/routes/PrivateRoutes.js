@@ -48,6 +48,8 @@ function PrivateRoutes() {
         />
         <Route exact path={SLUGS.componentsList} component={ComponentsList} />
         <Route exact path={SLUGS.messages} component={MessagesComponent} />
+        {/* startup school, this needs to be a different section */}
+        <Route exact path={SLUGS.startupschool} component={MessagesComponent} />
 
         <Redirect to={SLUGS.dashboard} />
       </Switch>

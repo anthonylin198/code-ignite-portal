@@ -18,6 +18,8 @@ const slugs = {
   subscription: "/subscription",
   componentsList: "/componentslist",
   messages: "/messages",
+  startupschool: "/curriculum/startupschool",
+  // course slugs
   // auth
   login: "/login",
   signup: "/signup",

@@ -6,6 +6,7 @@ import Grid from "@material-ui/core/Grid";
 // Import Components
 import StartupCurrCard from "./StartupCurrCard";
 import TechnicalCurrCard from "./TechnicalCurrCard";
+import CurrHeader from "./CurrHeader";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,14 +19,14 @@ const Curriculum = () => {
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
+        <Grid item md={12}>
+          <CurrHeader />
+        </Grid>
         <Grid item md={4}>
           <StartupCurrCard />
         </Grid>
         <Grid item md={4}>
           <TechnicalCurrCard />
-        </Grid>
-        <Grid item md={4}>
-          Phase 3
         </Grid>
       </Grid>
     </div>
