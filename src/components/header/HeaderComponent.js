@@ -59,9 +59,22 @@ const Name = styled.span`
   }
 `;
 
-const Avatar = styled.img`
+// const Avatar = styled.img`
+//   height: 35px;
+//   width: 35px;
+//   min-width: 35px;
+//   border-radius: 50px;
+//   margin-left: 14px;
+//   border: 1px solid #dfe0eb;
+//   @media (max-width: 768px) {
+//     margin-left: 14px;
+//   }
+// `;
+
+const Avatar2 = styled.div`
   height: 35px;
   width: 35px;
+  background-color: #ff8c94;
   min-width: 35px;
   border-radius: 50px;
   margin-left: 14px;
@@ -220,11 +233,13 @@ function HeaderComponent() {
           label={
             <>
               <Name>Anthony Lin</Name>
-              <Avatar
+              {/* <Avatar
+                // Insert link to the user image
                 src="https://avatars3.githubusercontent.com/u/21162888?s=460&v=4"
                 alt="avatar"
                 // className={classes.avatar}
-              />
+              /> */}
+              <Avatar2>A</Avatar2>
             </>
           }
           options={[
