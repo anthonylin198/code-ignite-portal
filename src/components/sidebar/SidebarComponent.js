@@ -8,6 +8,7 @@ import {
   IconAgents,
   IconOverview,
   IconContacts,
+  IconTickets,
 } from "../../assets/icons";
 import { convertSlugToUrl } from "../../resources/utilities";
 import LogoComponent from "./LogoComponent";
@@ -119,6 +120,14 @@ function SidebarComponent() {
         icon={IconSubscription}
         onClick={() => onClick(SLUGS.componentsList)}
       /> */}
+
+      <MenuItem
+        id={SLUGS.settings}
+        title="Messages"
+        icon={IconTickets}
+        onClick={() => onClick(SLUGS.messages)}
+      />
+
       <MenuItem
         id={SLUGS.settings}
         title="Settings"

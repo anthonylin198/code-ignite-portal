@@ -8,6 +8,7 @@ const DashboardComponent = lazy(() => import("./dashboard"));
 const ProfileComponent = lazy(() => import("./profile"));
 const CurriculumComponent = lazy(() => import("./curriculum"));
 const ExploreComponent = lazy(() => import("./explore"));
+const MessagesComponent = lazy(() => import("./messages"));
 
 function PrivateRoutes() {
   return (
@@ -46,6 +47,8 @@ function PrivateRoutes() {
           render={() => <div>subscription</div>}
         />
         <Route exact path={SLUGS.componentsList} component={ComponentsList} />
+        <Route exact path={SLUGS.messages} component={MessagesComponent} />
+
         <Redirect to={SLUGS.dashboard} />
       </Switch>
     </Suspense>

@@ -185,6 +185,9 @@ function HeaderComponent() {
     case currentItem === SLUGS.explore:
       title = "Explore";
       break;
+    case currentItem === SLUGS.messages:
+      title = "Messages";
+      break;
     default:
       title = "";
   }

@@ -17,6 +17,7 @@ const slugs = {
   settings: "/settings",
   subscription: "/subscription",
   componentsList: "/componentslist",
+  messages: "/messages",
   // auth
   login: "/login",
   signup: "/signup",
