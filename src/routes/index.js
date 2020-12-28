@@ -15,6 +15,7 @@ function Routes() {
 
   // Set authentication logic here
   const isUserLoggedIn = true;
+  // const isUserLoggedIn = false;
   return isUserLoggedIn ? <PrivateSection /> : <PublicRoutes />;
 }
 
