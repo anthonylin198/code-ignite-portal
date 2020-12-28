@@ -6,6 +6,8 @@ import PrivateRoutes from "./PrivateRoutes";
 
 import styled from "styled-components";
 
+import { useLocation } from "react-router-dom";
+
 // components
 const StyledRow = styled(Row)`
   height: 100%;
@@ -25,7 +27,18 @@ const StyledBlock = styled.div`
   margin-top: 34px;
 `;
 
+// check the route and have conditional rendering
+
 function PrivateSection() {
+  // conditional rendering based on react router
+  let location = useLocation();
+  if (location.pathname.includes("/curriculum/")) {
+    return (
+      <div>
+        <h1>Startup Course Layout</h1>
+      </div>
+    );
+  }
   return (
     <SidebarContext>
       <StyledRow>
