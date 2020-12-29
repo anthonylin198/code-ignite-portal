@@ -8,11 +8,17 @@ import Routes from "./routes";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 
+// redux imports
+import { Provider } from "react-redux";
+import store from "./redux/store";
+
 ReactDOM.render(
   // <ThemeProvider theme={Theme}>
-  <Router>
-    <Routes />
-  </Router>,
+  <Provider store={store}>
+    <Router>
+      <Routes />
+    </Router>
+  </Provider>,
   // </ThemeProvider>,
   document.getElementById("root")
 );
