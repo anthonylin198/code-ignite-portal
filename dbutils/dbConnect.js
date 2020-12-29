@@ -15,10 +15,11 @@ async function dbConnect() {
   // }
 
   const db = await mongoose.connect(
-    "mongodb+srv://anthonylin198:anthonylin198@igniteprogrammingdb.ucsf3.mongodb.net/<dbname>?retryWrites=true&w=majority",
+    "mongodb+srv://anthonylin198:anthonylin198@codeigniteportaltestdb.z9iul.mongodb.net/<dbname>?retryWrites=true&w=majority",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      useCreateIndex: true,
     }
   );
 
