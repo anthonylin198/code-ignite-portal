@@ -16,7 +16,6 @@ module.exports = async (req, res) => {
     case "POST":
       try {
         const user = await User.create(req.body);
-        console.log(user);
         res.status(201).json({ success: true, data: user });
       } catch (error) {
         res.status(400).json({ success: false });
