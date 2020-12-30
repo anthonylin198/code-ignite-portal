@@ -1,9 +1,50 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import styled from "styled-components";
 // import logo from "../assets/logo.svg";
-import Input from "../Input";
+import setAuthToken from "../../../../utils/setAuthToken";
 
 const Sidebar = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const onChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // submit the form
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    console.log("here");
+    if (formData.password !== formData.confirmPassword) {
+      console.log("Passwords do not match");
+    } else {
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+      const body = JSON.stringify({
+        name: formData.name,
+        email: formData.email,
+        password: formData.password,
+      });
+      try {
+        console.log(body);
+        const res = await axios.post("/api/users", body, config);
+        localStorage.setItem("token", res.data.token);
+        if (localStorage.token) {
+          setAuthToken(localStorage.token);
+        }
+      } catch (err) {
+        console.log("this is an error", err);
+      }
+    }
+  };
   return (
     <Container>
       <LogoWrapper>
@@ -12,11 +53,52 @@ const Sidebar = () => {
       </LogoWrapper>
       <Form>
         <h3>Sign Up</h3>
-        <Input placeholder="Full Name" />
-        <Input type="email" placeholder="Email" />
-        <Input type="password" placeholder="Password" />
-        <Input type="password" placeholder="Confirm Password" />
-        <button>Sign Up</button>
+        <InputContainer>
+          <StyledInput
+            placeholder="Full Name"
+            name="name"
+            type="text"
+            onChange={(e) => {
+              onChange(e);
+            }}
+          />
+          <Status />
+        </InputContainer>
+        <InputContainer>
+          <StyledInput
+            placeholder="email"
+            name="email"
+            type="email"
+            onChange={(e) => {
+              onChange(e);
+            }}
+          />
+          <Status />
+        </InputContainer>
+        <InputContainer>
+          <StyledInput
+            placeholder="password"
+            name="password"
+            type="password"
+            onChange={(e) => {
+              onChange(e);
+            }}
+          />
+          <Status />
+        </InputContainer>
+
+        <InputContainer>
+          <StyledInput
+            placeholder="confirm password"
+            name="confirmPassword"
+            type="password"
+            onChange={(e) => {
+              onChange(e);
+            }}
+          />
+          <Status />
+        </InputContainer>
+        <button onClick={(e) => onSubmit(e)}>Sign Up</button>
       </Form>
       <div>
         <Terms>
@@ -109,6 +191,46 @@ const Container = styled.div`
       color: #ff8d8d;
       cursor: pointer;
     }
+  }
+`;
+
+const StyledInput = styled.input`
+  width: 100%;
+  /* max-width: 350px; */
+  min-width: 400px;
+  height: 60px;
+  border: none;
+  margin: 0.5rem 0;
+  background-color: #f5f5f5;
+  box-shadow: 0px 14px 9px -15px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  padding: 0 1rem;
+  transition: all 0.2s ease-in;
+  &:hover {
+    transform: translateY(-3px);
+  }
+`;
+
+const InputContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Status = styled.div`
+  height: 10px;
+  width: 10px;
+  background: #9d9d9d;
+  border-radius: 10px;
+  margin-left: 1rem;
+  ${StyledInput}:focus + & {
+    background: #ffa689;
+  }
+  ${StyledInput}:invalid + & {
+    background: #fe2f75;
+  }
+  ${StyledInput}:valid + & {
+    background: #70edb9;
   }
 `;
 

@@ -9,6 +9,7 @@ const Input = ({ type, placeholder }) => {
         type={type ? type : "text"}
         required
         autocomplete="off"
+        // onChange={(e) => onChange(e)}
       />
       <Status />
     </Container>
