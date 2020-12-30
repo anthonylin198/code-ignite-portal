@@ -14,6 +14,7 @@ function Routes() {
   }, [pathname]);
 
   // Set authentication logic here
+  // todo: check the auth token, if it is there, keep the user logged in. Or, you can get from redux store
   // const isUserLoggedIn = true;
   const isUserLoggedIn = false;
   return isUserLoggedIn ? <PrivateSection /> : <PublicRoutes />;

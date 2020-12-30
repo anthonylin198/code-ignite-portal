@@ -16,6 +16,10 @@ const Sidebar = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // check if the user is already logged in
+
+  // if they are, send them to the dashboard
+
   // submit the form
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -36,10 +40,12 @@ const Sidebar = () => {
       try {
         console.log(body);
         const res = await axios.post("/api/users", body, config);
+        // todo: localstorage set the json token
         localStorage.setItem("token", res.data.token);
         if (localStorage.token) {
           setAuthToken(localStorage.token);
         }
+        // todo: dispatch action and load to redux
       } catch (err) {
         console.log("this is an error", err);
       }
@@ -66,7 +72,7 @@ const Sidebar = () => {
         </InputContainer>
         <InputContainer>
           <StyledInput
-            placeholder="email"
+            placeholder="Email"
             name="email"
             type="email"
             onChange={(e) => {
@@ -77,7 +83,7 @@ const Sidebar = () => {
         </InputContainer>
         <InputContainer>
           <StyledInput
-            placeholder="password"
+            placeholder="Password"
             name="password"
             type="password"
             onChange={(e) => {
@@ -89,7 +95,7 @@ const Sidebar = () => {
 
         <InputContainer>
           <StyledInput
-            placeholder="confirm password"
+            placeholder="Confirm Password"
             name="confirmPassword"
             type="password"
             onChange={(e) => {
