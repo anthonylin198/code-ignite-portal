@@ -4,6 +4,8 @@ import styled from "styled-components";
 // import logo from "../assets/logo.svg";
 import setAuthToken from "../../../../utils/setAuthToken";
 
+import { useHistory } from "react-router-dom";
+
 const Sidebar = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -11,6 +13,7 @@ const Sidebar = () => {
     password: "",
     confirmPassword: "",
   });
+  let history = useHistory();
 
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -23,7 +26,6 @@ const Sidebar = () => {
   // submit the form
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log("here");
     if (formData.password !== formData.confirmPassword) {
       console.log("Passwords do not match");
     } else {
@@ -38,14 +40,16 @@ const Sidebar = () => {
         password: formData.password,
       });
       try {
-        console.log(body);
-        const res = await axios.post("/api/users", body, config);
+        const res = await axios.post("/api/auth", body, config);
         // todo: localstorage set the json token
         localStorage.setItem("token", res.data.token);
         if (localStorage.token) {
           setAuthToken(localStorage.token);
         }
         // todo: dispatch action and load to redux
+
+        //todo: Go to the home dashboard
+        history.push("/dashboard");
       } catch (err) {
         console.log("this is an error", err);
       }
