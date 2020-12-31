@@ -13,6 +13,9 @@ const UserSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  isAuthenticated: {
+    type: Boolean,
+  },
 });
 
 module.exports = mongoose.models.User || mongoose.model("User", UserSchema);
