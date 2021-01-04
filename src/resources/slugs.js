@@ -21,7 +21,7 @@ const slugs = {
   startupschool: "/curriculum/startupschool",
   // course slugs
   // auth
-  login: "/login",
+  signin: "/signin",
   signup: "/signup",
   forgotPassword: "/forgot_password",
 };

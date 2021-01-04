@@ -118,7 +118,7 @@ const Sidebar = () => {
           Service
         </Terms>
         <h4>
-          Already have an account? <Link to="signin">Sign In</Link>
+          Already have an account? <Link to="signup">Sign Up</Link>
         </h4>
       </div>
     </Container>
