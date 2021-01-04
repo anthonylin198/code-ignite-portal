@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import Sidebar from "./Sidebar";
@@ -22,11 +22,14 @@ const Wrapper = styled.div`
 `;
 
 const Signup = () => {
+  // todo : create a react hook for loading
+  const [signingIn, setSigningIn] = useState(false);
+
   return (
     <Container>
       <Wrapper>
         <Main />
-        <Sidebar />
+        <Sidebar signingIn={signingIn} setSigningIn={setSigningIn} />
       </Wrapper>
     </Container>
   );

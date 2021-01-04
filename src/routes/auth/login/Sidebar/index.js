@@ -5,20 +5,20 @@ import styled from "styled-components";
 import setAuthToken from "../../../../utils/setAuthToken";
 
 import { Link } from "react-router-dom";
-
 import { useHistory } from "react-router-dom";
+
+import { SpinLoader } from "../../../../components/loaders";
 
 // redux
 import { useDispatch } from "react-redux";
 import { loadUserAction } from "../../../../redux/actions/user";
 
-const Sidebar = () => {
+const Sidebar = ({ signingIn, setSigningIn }) => {
   const [formData, setFormData] = useState({
-    name: "",
     email: "",
     password: "",
-    confirmPassword: "",
   });
+
   let history = useHistory();
   const dispatch = useDispatch();
 
@@ -26,14 +26,10 @@ const Sidebar = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // check if the user is already logged in
-
-  // if they are, send them to the dashboard
-
   // submit the form -> use login
   const onSubmit = async (e) => {
     e.preventDefault();
-
+    setSigningIn(true);
     const config = {
       headers: {
         "Content-Type": "application/json",
@@ -49,14 +45,19 @@ const Sidebar = () => {
       if (localStorage.token) {
         setAuthToken(localStorage.token);
       }
-      // todo: dispatch action and load to redux
       dispatch(loadUserAction());
-      //todo: Go to the home dashboard
       history.push("/dashboard");
+      setSigningIn(false);
     } catch (err) {
+      setSigningIn(false);
       console.log("this is an error", err);
     }
   };
+
+  let loading;
+  if (signingIn) {
+    loading = <SpinLoader />;
+  }
   return (
     <Container>
       <LogoWrapper>
@@ -88,6 +89,7 @@ const Sidebar = () => {
           <Status />
         </InputContainer>
         <button onClick={(e) => onSubmit(e)}>Sign In</button>
+        {loading}
       </Form>
       <div>
         <Terms>
