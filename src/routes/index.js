@@ -4,6 +4,10 @@ import useWindowSize from "../hooks/useWindowSize";
 import PrivateSection from "./PrivateSection";
 import PublicRoutes from "./PublicRoutes";
 
+// redux and axios
+import setAuthToken from "../utils/setAuthToken";
+import axios from "axios";
+
 function Routes() {
   const { pathname } = useLocation();
   // eslint-disable-next-line no-unused-vars
@@ -17,8 +21,21 @@ function Routes() {
   let isUserLoggedIn = false;
   if (localStorage.token) {
     isUserLoggedIn = true;
-    // todo: make the get request with the token value and load the data
+    setAuthToken(localStorage.token);
   }
+
+  useEffect(() => {
+    const loadUserData = async () => {
+      setAuthToken(localStorage.token); // sets the x-auth headers
+      try {
+        const userData = await axios.get("api/auth");
+        console.log(userData.data);
+      } catch (err) {
+        console.log("error");
+      }
+    };
+    loadUserData();
+  }, []);
 
   return isUserLoggedIn ? <PrivateSection /> : <PublicRoutes />;
 }
