@@ -4,11 +4,18 @@ import styled from "styled-components";
 // import logo from "../assets/logo.svg";
 import setAuthToken from "../../../../utils/setAuthToken";
 
+// React router
 import { Link } from "react-router-dom";
-
 import { useHistory } from "react-router-dom";
 
+// Redux imports
+import { useDispatch } from "react-redux";
+import { userReducer } from "../../../../redux/reducers/user";
+
 const Sidebar = () => {
+  const { loadUser } = userReducer.actions;
+  const dispatch = useDispatch();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -20,10 +27,6 @@ const Sidebar = () => {
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
-  // check if the user is already logged in
-
-  // if they are, send them to the dashboard
 
   // submit the form
   const onSubmit = async (e) => {
@@ -49,7 +52,7 @@ const Sidebar = () => {
           setAuthToken(localStorage.token);
         }
         // todo: dispatch action and load to redux
-
+        dispatch(loadUser(body));
         //todo: Go to the home dashboard
         history.push("/dashboard");
       } catch (err) {
