@@ -6,6 +6,7 @@ import styled from "styled-components";
 
 const Container = styled(Column)`
   background-color: "#373a47";
+  height: 100%;
 `;
 
 const Loading = styled.div`
