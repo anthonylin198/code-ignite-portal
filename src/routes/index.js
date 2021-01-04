@@ -6,7 +6,7 @@ import PublicRoutes from "./PublicRoutes";
 
 // redux and axios
 import setAuthToken from "../utils/setAuthToken";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loadUserAction } from "../redux/actions/user";
 
 function Routes() {
@@ -17,29 +17,26 @@ function Routes() {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  const dispatch = useDispatch();
+  // useselector
+  const user = useSelector((state) => state.user);
 
-  // Set authentication logic here
-  let isUserLoggedIn = false;
-  if (localStorage.token) {
-    isUserLoggedIn = true;
-    setAuthToken(localStorage.token);
-  }
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const loadUserData = async () => {
-      setAuthToken(localStorage.token); // sets the x-auth headers
-      try {
-        // load user action
-        dispatch(loadUserAction());
-      } catch (err) {
-        console.log("error");
+      if (localStorage.token) {
+        setAuthToken(localStorage.token);
+        try {
+          dispatch(loadUserAction());
+        } catch (err) {
+          console.log("error");
+        }
       }
     };
     loadUserData();
   }, [dispatch]);
 
-  return isUserLoggedIn ? <PrivateSection /> : <PublicRoutes />;
+  return user.isAuthenticated ? <PrivateSection /> : <PublicRoutes />;
 }
 
 export default Routes;

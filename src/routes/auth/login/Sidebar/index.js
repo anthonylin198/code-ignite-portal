@@ -8,6 +8,10 @@ import { Link } from "react-router-dom";
 
 import { useHistory } from "react-router-dom";
 
+// redux
+import { useDispatch } from "react-redux";
+import { loadUserAction } from "../../../../redux/actions/user";
+
 const Sidebar = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -16,6 +20,7 @@ const Sidebar = () => {
     confirmPassword: "",
   });
   let history = useHistory();
+  const dispatch = useDispatch();
 
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -40,13 +45,12 @@ const Sidebar = () => {
     });
     try {
       const res = await axios.post("/api/auth/signin", body, config);
-      // todo: localstorage set the json token
       localStorage.setItem("token", res.data.token);
       if (localStorage.token) {
         setAuthToken(localStorage.token);
       }
       // todo: dispatch action and load to redux
-
+      dispatch(loadUserAction());
       //todo: Go to the home dashboard
       history.push("/dashboard");
     } catch (err) {

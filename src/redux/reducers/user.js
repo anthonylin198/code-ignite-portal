@@ -43,7 +43,6 @@ export const userReducer = createSlice({
         state.email = email;
         state.isAuthenticated = true;
       } else {
-        console.log("not auth");
         state.name = "";
         state.email = "";
         state.isAuthenticated = false;

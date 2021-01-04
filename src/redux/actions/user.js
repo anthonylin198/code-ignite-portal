@@ -15,7 +15,7 @@ export const loadUserAction = createAsyncThunk(
       const userData = await axios.get("/api/auth");
       return userData.data;
     } catch (err) {
-      console.log("user is not authenticated");
+      console.err(err);
     }
   }
 );
