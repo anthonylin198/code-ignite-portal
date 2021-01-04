@@ -6,16 +6,18 @@ import PublicRoutes from "./PublicRoutes";
 
 // redux and axios
 import setAuthToken from "../utils/setAuthToken";
-import axios from "axios";
+import { useDispatch } from "react-redux";
+import { loadUserAction } from "../redux/actions/user";
 
 function Routes() {
   const { pathname } = useLocation();
   // eslint-disable-next-line no-unused-vars
   const [width, height] = useWindowSize();
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+
+  const dispatch = useDispatch();
 
   // Set authentication logic here
   let isUserLoggedIn = false;
@@ -28,14 +30,14 @@ function Routes() {
     const loadUserData = async () => {
       setAuthToken(localStorage.token); // sets the x-auth headers
       try {
-        const userData = await axios.get("api/auth");
-        console.log(userData.data);
+        // load user action
+        dispatch(loadUserAction());
       } catch (err) {
         console.log("error");
       }
     };
     loadUserData();
-  }, []);
+  }, [dispatch]);
 
   return isUserLoggedIn ? <PrivateSection /> : <PublicRoutes />;
 }
