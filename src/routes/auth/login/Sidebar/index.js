@@ -28,33 +28,29 @@ const Sidebar = () => {
   // submit the form -> use login
   const onSubmit = async (e) => {
     e.preventDefault();
-    if (formData.password !== formData.confirmPassword) {
-      console.log("Passwords do not match");
-    } else {
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      };
-      const body = JSON.stringify({
-        name: formData.name,
-        email: formData.email,
-        password: formData.password,
-      });
-      try {
-        const res = await axios.post("/api/auth", body, config);
-        // todo: localstorage set the json token
-        localStorage.setItem("token", res.data.token);
-        if (localStorage.token) {
-          setAuthToken(localStorage.token);
-        }
-        // todo: dispatch action and load to redux
 
-        //todo: Go to the home dashboard
-        history.push("/dashboard");
-      } catch (err) {
-        console.log("this is an error", err);
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    const body = JSON.stringify({
+      email: formData.email,
+      password: formData.password,
+    });
+    try {
+      const res = await axios.post("/api/auth/signin", body, config);
+      // todo: localstorage set the json token
+      localStorage.setItem("token", res.data.token);
+      if (localStorage.token) {
+        setAuthToken(localStorage.token);
       }
+      // todo: dispatch action and load to redux
+
+      //todo: Go to the home dashboard
+      history.push("/dashboard");
+    } catch (err) {
+      console.log("this is an error", err);
     }
   };
   return (
@@ -87,7 +83,7 @@ const Sidebar = () => {
           />
           <Status />
         </InputContainer>
-        <button onClick={(e) => onSubmit(e)}>Sign Up</button>
+        <button onClick={(e) => onSubmit(e)}>Sign In</button>
       </Form>
       <div>
         <Terms>
