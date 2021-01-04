@@ -5,6 +5,8 @@ import User from "../../models/User";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
+// ! user signup, and get specific user based off JWT
+
 module.exports = async (req, res) => {
   dbConnect();
   const { method } = req;
@@ -20,7 +22,7 @@ module.exports = async (req, res) => {
           name,
           email,
           password,
-          isAuthenticat: true,
+          isAuthenticated: true,
         });
         // Encrypt password with Bcrypt and save to database
         const salt = await bcrypt.genSalt(10);
@@ -38,6 +40,27 @@ module.exports = async (req, res) => {
         });
       } catch (err) {
         res.status(400).json({ success: false, error: err });
+      }
+      break;
+    case "GET":
+      try {
+        // todo middleware
+        const token = req.headers["x-auth-token"];
+        // check if no token
+        if (!token) {
+          return res
+            .status(401)
+            .json({ msg: "No token, authorization denied" });
+        }
+        // Verify Token
+        const decoded = jwt.verify(token, "secret");
+        req.user = decoded.user;
+        console.log("here", req.user.id);
+        const user = await User.findById(req.user.id).select("-password"); // req.user is set in the auth.js middleware
+        console.log("user", user);
+        res.status(200).json(user);
+      } catch (error) {
+        res.status(400).json({ success: false, msg: "Token not valid" });
       }
       break;
     default:

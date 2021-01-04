@@ -1,6 +1,8 @@
 import dbConnect from "../../dbutils/dbConnect";
 import User from "../../models/User";
 
+// user login and get all users
+
 module.exports = async (req, res) => {
   dbConnect();
   const { method } = req;
