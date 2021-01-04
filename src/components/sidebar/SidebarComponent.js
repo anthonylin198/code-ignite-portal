@@ -15,6 +15,10 @@ import LogoComponent from "./LogoComponent";
 import Menu from "./MenuComponent";
 import MenuItem from "./MenuItemComponent";
 
+// redux
+import { useDispatch } from "react-redux";
+import { userReducer } from "../../redux/reducers/user";
+
 // styled components
 import styled from "styled-components";
 
@@ -29,8 +33,13 @@ function SidebarComponent() {
   const { push } = useHistory();
   const isMobile = window.innerWidth <= 1080;
 
-  async function logout() {
-    push(SLUGS.login);
+  const { logout } = userReducer.actions;
+  const dispatch = useDispatch();
+
+  async function logoutUser() {
+    // destroy the auth token
+    dispatch(logout());
+    push(SLUGS.signin);
   }
 
   function onClick(slug, parameters = {}) {
@@ -66,60 +75,7 @@ function SidebarComponent() {
         icon={IconContacts}
         onClick={() => onClick(SLUGS.explore)}
       />
-      {/* <MenuItem
-        id={SLUGS.overview}
-        items={[SLUGS.overviewTwo, SLUGS.overviewThree]}
-        title="Overview"
-        icon={IconOverview}
-      >
-        <MenuItem
-          id={SLUGS.overview}
-          title="Sub Item 1"
-          level={2}
-          icon={IconAgents}
-          onClick={() => onClick(SLUGS.overview)}
-        />
-        <MenuItem
-          id={SLUGS.overviewTwo}
-          title="Sub Item 2"
-          level={2}
-          icon={IconContacts}
-          onClick={() => onClick(SLUGS.overviewTwo)}
-        />
-        <MenuItem
-          id={SLUGS.overviewThree}
-          title="Sub Item 3"
-          level={2}
-          icon={IconArticles}
-          onClick={() => onClick(SLUGS.overviewThree)}
-        />
-      </MenuItem> */}
-      {/* <MenuItem
-        id={SLUGS.tickets}
-        title="Tickets"
-        icon={IconTickets}
-        onClick={() => onClick(SLUGS.tickets)}
-      /> */}
-
-      {/* <MenuItem
-        id={SLUGS.contacts}
-        title="Contacts"
-        icon={IconContacts}
-        onClick={() => onClick(SLUGS.contacts)}
-      /> */}
       <Seperator></Seperator>
-      {/* <MenuItem
-        id={SLUGS.componentslist}
-        title="ComponentsList"
-        icon={IconSubscription}
-        onClick={() => onClick(SLUGS.componentsList)}
-      /> */}
-      {/* <MenuItem
-        id={SLUGS.componentsList}
-        title="Components List"
-        icon={IconSubscription}
-        onClick={() => onClick(SLUGS.componentsList)}
-      /> */}
 
       <MenuItem
         id={SLUGS.messages}
@@ -135,7 +91,12 @@ function SidebarComponent() {
         onClick={() => onClick(SLUGS.settings)}
       />
 
-      <MenuItem id="logout" title="Logout" icon={IconLogout} onClick={logout} />
+      <MenuItem
+        id="logout"
+        title="Logout"
+        icon={IconLogout}
+        onClick={logoutUser}
+      />
     </Menu>
   );
 }
