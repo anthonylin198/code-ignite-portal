@@ -25,7 +25,7 @@ const Sidebar = () => {
 
   // if they are, send them to the dashboard
 
-  // submit the form
+  // submit the form -> use login
   const onSubmit = async (e) => {
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
@@ -64,18 +64,7 @@ const Sidebar = () => {
         <h3>CodeIgnite</h3>
       </LogoWrapper>
       <Form>
-        <h3>Sign Up</h3>
-        <InputContainer>
-          <StyledInput
-            placeholder="Full Name"
-            name="name"
-            type="text"
-            onChange={(e) => {
-              onChange(e);
-            }}
-          />
-          <Status />
-        </InputContainer>
+        <h3>Sign In</h3>
         <InputContainer>
           <StyledInput
             placeholder="Email"
@@ -91,18 +80,6 @@ const Sidebar = () => {
           <StyledInput
             placeholder="Password"
             name="password"
-            type="password"
-            onChange={(e) => {
-              onChange(e);
-            }}
-          />
-          <Status />
-        </InputContainer>
-
-        <InputContainer>
-          <StyledInput
-            placeholder="Confirm Password"
-            name="confirmPassword"
             type="password"
             onChange={(e) => {
               onChange(e);
