@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import useWindowSize from "../hooks/useWindowSize";
 import PrivateSection from "./PrivateSection";
@@ -19,24 +19,29 @@ function Routes() {
 
   // useselector
   const user = useSelector((state) => state.user);
-
   const dispatch = useDispatch();
+
+  // hook changes based off user.isAuthenicated
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     const loadUserData = async () => {
       if (localStorage.token) {
+        setIsAuthenticated(true);
         setAuthToken(localStorage.token);
         try {
           dispatch(loadUserAction());
         } catch (err) {
           console.log("error");
         }
+      } else {
+        setIsAuthenticated(false);
       }
     };
     loadUserData();
-  }, [dispatch]);
+  }, [dispatch, user.isAuthenticated]);
 
-  return user.isAuthenticated ? <PrivateSection /> : <PublicRoutes />;
+  return isAuthenticated ? <PrivateSection /> : <PublicRoutes />;
 }
 
 export default Routes;

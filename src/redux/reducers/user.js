@@ -27,7 +27,7 @@ export const userReducer = createSlice({
       // if register is a success then we set to the payload
     },
     // todo: logout user action - we just remove all the user data
-    logout: (state, payload) => {
+    logout: (state) => {
       localStorage.removeItem("token");
       state.name = "";
       state.email = "";
