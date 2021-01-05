@@ -18,12 +18,14 @@ function Routes() {
   }, [pathname]);
 
   // useselector
-  const user = useSelector((state) => state.user);
+  const authenticated = useSelector((state) => state.user.isAuthenticated);
+
   const dispatch = useDispatch();
 
   // hook changes based off user.isAuthenicated
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
+  // todo play around with authenticated which is from redux so it wont be run twice
   useEffect(() => {
     const loadUserData = async () => {
       if (localStorage.token) {
@@ -39,7 +41,9 @@ function Routes() {
       }
     };
     loadUserData();
-  }, [dispatch, user.isAuthenticated]);
+  }, [dispatch, authenticated]);
+
+  // if authenticated is change, we want to force a rerender
 
   return isAuthenticated ? <PrivateSection /> : <PublicRoutes />;
 }
